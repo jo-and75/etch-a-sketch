@@ -1,46 +1,26 @@
 const body = document.querySelector("body");   
-const container = document.getElementById("container"); 
+const container = document.getElementById("container");  
 
-const frameUp = document.createElement("div");   
-const frameDown = document.createElement("div"); 
-const frameLeft = document.createElement("div"); 
-const frameRight = document.createElement("div"); 
+container.setAttribute("style", "border: solid purple; display:flex; width:auto; height: auto;") 
 
 
-frameUp.setAttribute("style", "border:solid green; display:flex; justify-content:center;") 
-frameLeft.setAttribute("style","border: solid blue; display:flex; flex-direction:column; align-items: flex-start;")
+function createGrid(size) { 
+    for(let i = 1; i < size ; i++){    
+    const column = document.createElement("div"); 
+    column.setAttribute("style","border: solid black; height: 30px; width: 30px;"); 
+    container.appendChild(column);   
 
-container.setAttribute("style", "border: solid purple; margin-left: 620px; margin-right: 300px") 
-
-
-
-for(let i =0; i < 16 ; i++){   
-
-
-    const topDivs = document.createElement("div");
-    topDivs.setAttribute("style", "border:solid; height:25px; width:25px; display:flex; flex-direction:row;");
-    frameUp.appendChild(topDivs);    
-    container.appendChild(frameUp)
-
-    
-    const leftDivs = document.createElement("div");
-    leftDivs.setAttribute("style", "border:solid; height:25px; width:25px;display:flex-direction: column;");  
-    frameLeft.appendChild(leftDivs);
-    container.appendChild(frameLeft); 
-
-    /*
-    const rightDivs = document.createElement("div");
-    rightDivs.setAttribute("style", "border:solid; height:25px; width:25px; display:flex; flex-direction:column;");
-    container.appendChild(rightDivs);  
-
-    const bottomDivs = document.createElement("div");
-    bottomDivs.setAttribute("style", "border:solid; height:25px; width:25px; flex-direction:row; align-items:flex-end;");
-    container.appendChild(bottomDivs);  
-   */
+        for (let j = 1; j <= size; j++){ 
+            const row = document.createElement("div"); 
+            row.setAttribute("style","border: solid black; height: 30px; width: 30px;"); 
+            column.appendChild(row);
+        }
+    }  
 }
+
+createGrid(16)
 
 body.setAttribute("style", "background-color:#771011;") 
 
-top.setAttribute("style","display:flex; border:solid green;")
 
 
