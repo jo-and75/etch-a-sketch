@@ -10,6 +10,10 @@ function createGrid(size) {
     const containerWidth = size*25;
     const containerLength = size*25;
 
+    container.style.width = containerWidth + "px"; // Need to add px cause css dictates unit needs to be defined
+    container.style.length = containerLength + "px";   
+
+
 
     for(let i = 1; i < size ; i++){    
     const column = document.createElement("div"); 
