@@ -4,7 +4,13 @@ const container = document.getElementById("container");
 container.setAttribute("style", "border: solid purple; display:flex;") 
 
 
-function createGrid(size) { 
+
+function createGrid(size) {  
+
+    const containerWidth = size*25;
+    const containerLength = size*25;
+
+
     for(let i = 1; i < size ; i++){    
     const column = document.createElement("div"); 
     column.setAttribute("style","border: solid black; height: 25px; width: 25px;"); 
