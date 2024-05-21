@@ -9,9 +9,11 @@ body {
 }
 
 
-
-
 #container{ 
-    display: flex; 
-    
+    display: flex;  
+    flex-wrap: wrap;
+    background-color: #F3DBB2; 
+    border: solid purple; 
+    width: 400px; 
+    height: 400px; 
 }
