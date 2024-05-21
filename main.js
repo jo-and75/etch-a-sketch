@@ -21,6 +21,15 @@ function createGrid(size) {
             
             const row = document.createElement("div"); 
             row.setAttribute("style",`height:${cellSize}px ; width: ${cellSize}px; box-sizing: border-box;transition: background-color 0.3s;`); 
+
+            row.addEventListener("mouseenter", () => { 
+                 row.style.backgroundColor = "#754B2F"; // Change the color on hover
+            });
+            row.addEventListener("mouseleave", () => {
+              row.style.backgroundColor = "#F3DBB2"; // Reset the color when mouse leaves
+            });
+
+
             column.appendChild(row);
         }
     }   
