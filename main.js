@@ -3,7 +3,7 @@ const body = document.querySelector("body");
 const container = document.getElementById("container");   
 
 
-body.setAttribute("style", "display:flex; border: solid blue; height: 100vh; justify-content: center; background-color:#754B2F")
+body.setAttribute("style", "display:flex; border: solid blue; height: 100vh; justify-content: center; align-items: center; background-color:#754B2F")
 
 
 
