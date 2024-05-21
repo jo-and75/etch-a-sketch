@@ -3,7 +3,7 @@ const body = document.querySelector("body");
 const container = document.getElementById("container");   
 
 
-body.setAttribute("style", "display:flex; flex-direction: row; justify-content: center; background-color:#754B2F")
+body.setAttribute("style", "display:flex; border: solid blue; height: 100vh; justify-content: center; background-color:#754B2F")
 
 
 
@@ -35,7 +35,7 @@ function createGrid(size) {
         }
     }   
 
-    container.style.display = "flex"; 
+    container.style.display = "flex";  
     container.style.width = containerWidth + "px"; // Need to add px cause css dictates unit needs to be defined
     container.style.height = containerHeight + "px";   
     container.style.border = "solid purple";       
