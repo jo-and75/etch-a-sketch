@@ -2,9 +2,6 @@ const body = document.querySelector("body");
 const container = document.getElementById("container");   
 const page = document.getElementById("page");  
 
-container.addEventListener("mouseover", () => { 
-    alert("YAAAY");
-})
 
 page.setAttribute("style", "display:flex; justify-content:flex-end;")
 
@@ -19,9 +16,16 @@ function createGrid(size) {
     column.setAttribute("style","display: flex; flex-direction: column; box-sizing: border-box; border:0;"); 
     container.appendChild(column);   
 
-        for (let j = 0; j < size; j++){ 
+        for (let j = 0; j < size; j++){  
+            
             const row = document.createElement("div"); 
             row.setAttribute("style",`height:${cellSize}px ; width: ${cellSize}px; box-sizing: border-box;`); 
+           
+            const pixels = document.createElement("div");  
+            pixels.classList.add("pixels");
+            pixels.addEventListener("mouseover", ()=> { 
+                pixels.style.color = ["red","orange","yellow","green","blue","indigo","violet"][Math.floor(Math.random()*7)]
+            })
             column.appendChild(row);
         }
     }   
