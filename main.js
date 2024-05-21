@@ -20,12 +20,6 @@ function createGrid(size) {
             
             const row = document.createElement("div"); 
             row.setAttribute("style",`height:${cellSize}px ; width: ${cellSize}px; box-sizing: border-box;`); 
-           
-            const pixels = document.createElement("div");  
-            pixels.classList.add("pixels");
-            pixels.addEventListener("mouseover", ()=> { 
-                pixels.style.color = ["red","orange","yellow","green","blue","indigo","violet"][Math.floor(Math.random()*7)]
-            })
             column.appendChild(row);
         }
     }   
@@ -37,9 +31,9 @@ function createGrid(size) {
     container.style.backgroundColor = "#F3DBB2"
 }
 
-createGrid(17);
+createGrid(16);
 
-body.setAttribute("style", "background-color:#754B2F") 
+
 
 
 

@@ -1,0 +1,17 @@
+
+body {
+    background-color: #754B2F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+
+
+#container{ 
+    display: flex; 
+    
+}
