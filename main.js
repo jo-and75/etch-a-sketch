@@ -1,5 +1,8 @@
 const body = document.querySelector("body");   
-const container = document.getElementById("container");  
+const container = document.getElementById("container");   
+const page = document.getElementById("page"); 
+
+page.setAttribute("style", "display:flex; justify-content:flex-end;")
 
 function createGrid(size) {     
 
