@@ -3,8 +3,9 @@ const body = document.querySelector("body");
 const container = document.getElementById("container");   
 const page = document.getElementById("page");  
 
+body.setAttribute("style", "background-color:#754B2F")
 
-page.setAttribute("style", "display:flex; justify-content:flex-end; color: #754B2F")
+page.setAttribute("style", "display:flex; justify-content:flex-end; color:")
 
 function createGrid(size) {     
 
