@@ -1,11 +1,11 @@
 
 const body = document.querySelector("body");   
 const container = document.getElementById("container");   
-const page = document.getElementById("page");  
 
-body.setAttribute("style", "background-color:#754B2F")
 
-page.setAttribute("style", "display:flex; justify-content:flex-end; color:")
+body.setAttribute("style", "display:flex; flex-direction: row; justify-content: center; background-color:#754B2F")
+
+
 
 function createGrid(size) {     
 
