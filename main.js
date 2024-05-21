@@ -1,6 +1,10 @@
 const body = document.querySelector("body");   
 const container = document.getElementById("container");   
-const page = document.getElementById("page"); 
+const page = document.getElementById("page");  
+
+container.addEventListener("mouseover", () => { 
+    alert("YAAAY");
+})
 
 page.setAttribute("style", "display:flex; justify-content:flex-end;")
 
