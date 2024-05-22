@@ -10,14 +10,15 @@ gridSize.addEventListener("click", () => {
     let userInput = prompt("Please enter a new grid size. Should be less than 100");  
     let userNumber = parseInt(userInput); 
 
-    if(userNumber > 0 && userNumber < 100){ 
-        createGrid(userNumber);
-    }else if(typeof userNumber === "Number" && (userNumber < 0 || userNumber > 100))  { 
-        alert("The input should be greater than 0 and less than 100.");
+   if(!isNaN(userNumber) && typeof userNumber === "number"){ 
+        if(userNumber > 0 && userNumber < 100){ 
+            createGrid(userNumber);
+        }else { 
+            alert("The input should be greater than 0 and less than 100.");
+        }
     }else{ 
         alert("The input was not a valid number.");
     }
-
 })
 
 const page = document.getElementById("page"); 
