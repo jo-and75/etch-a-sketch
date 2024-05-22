@@ -16,6 +16,7 @@ buttons.appendChild(resetGrid);
 
 
 
+
 gridSize.addEventListener("click", () => { 
     let userInput = prompt("PLEASE ENTER A NEW GRID SIZE. INPUT SHOULD BE LESS THAN 71");  
     let userNumber = parseInt(userInput); 
@@ -34,7 +35,7 @@ gridSize.addEventListener("click", () => {
     resetGrid.addEventListener("click", ()=> { 
         container.innerHTML = "";  
         createGrid(userNumber); 
-        alert("GRID HAS BEEN RESET, YOU CAN HOVER OVER IT AGAIN")
+        //alert("GRID HAS BEEN RESET, YOU CAN HOVER OVER IT AGAIN")
         
     })
     /* 
@@ -52,25 +53,28 @@ gridSize.addEventListener("click", () => {
     Together, these checks ensure that userNumber is a valid number and not NaN. 
 
     */
-
-
 }) 
+
+function generateRandomColor() {
+    // Step 1: Generate random RGB values
+    const red = Math.floor(Math.random() * 256); // Random integer between 0 and 255
+    const green = Math.floor(Math.random() * 256);
+    const blue = Math.floor(Math.random() * 256);
+
+    // Step 2: Combine RGB values into a CSS color string
+    const randomColor = `rgb(${red}, ${green}, ${blue})`;
+
+    return randomColor; // Return the generated color string
+}
+
+
+
 
 
 
 const page = document.getElementById("page"); 
 page.setAttribute('style', "border: solid green;")
-
-
-
-
-
-
 body.setAttribute("style", "display:flex; flex-direction: column; gap: 60px; border: solid blue; width: 100vw; height: 100vh; justify-content: center; align-items: center; background-color:#754B2F")
-
-
-
-//const gridSize = prompt(parseInt())
 
 
 function createGrid(size) {     
@@ -92,12 +96,10 @@ function createGrid(size) {
                  row.style.backgroundColor = "#754B2F"; // Change the color on hover
             });
             row.addEventListener("mouseleave", () => {
-              row.style.backgroundColor = "#754B2F"//"#F3DBB2"; // Reset the color when mouse leaves
+              row.style.backgroundColor ="#754B2F"; // Reset the color when mouse leaves
             });
             column.appendChild(row);
         } 
-
-
         
     }   
 
