@@ -3,17 +3,19 @@ const body = document.querySelector("body");
 const container = document.getElementById("container");   
 
 const gridSize = document.createElement("button");    
-gridSize.textContent = "Create Grid Size"
+gridSize.textContent = "Create Grid"; 
+const resetGrid = document.createElement("button"); 
+resetGrid.textContent = "Reset Grid";
 gridSize.setAttribute("style", "display:flex;align-self: auto;")
 body.appendChild(gridSize); 
-
+body.appendChild(resetGrid);
 gridSize.addEventListener("click", () => { 
-    let userInput = prompt("Please enter a new grid size. Should be less than 100");  
+    let userInput = prompt("PLEASE ENTER A NEW GRID SIZE. INPUT SHOULD BE LESS THAN 71");  
     let userNumber = parseInt(userInput); 
 
    if(!isNaN(userNumber) && typeof userNumber === "number"){ 
         if(userNumber > 0 && userNumber < 71){   
-            container.innerHTML = "";// Resets grid each time button is clicked.
+            container.innerHTML = "";// Removes all child elements effectively reseting grid each time button is clicked.
             createGrid(userNumber);
         }else { 
             alert("THE INPUT SHOULD BE LESS THAN OR EQUAL TO 70.");
