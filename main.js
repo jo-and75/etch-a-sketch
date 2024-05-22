@@ -1,14 +1,21 @@
 
 const body = document.querySelector("body");   
-const container = document.getElementById("container");   
+const container = document.getElementById("container");    
+const buttons = document.getElementById("buttons"); 
+
+buttons.setAttribute("style","display: flex; justify-content: space-between; width:200px; border: solid pink")
 
 const gridSize = document.createElement("button");    
 gridSize.textContent = "Create Grid"; 
 const resetGrid = document.createElement("button"); 
 resetGrid.textContent = "Reset Grid";
 gridSize.setAttribute("style", "display:flex;align-self: auto;")
-body.appendChild(gridSize); 
-body.appendChild(resetGrid);
+
+buttons.appendChild(gridSize); 
+buttons.appendChild(resetGrid); 
+
+
+
 gridSize.addEventListener("click", () => { 
     let userInput = prompt("PLEASE ENTER A NEW GRID SIZE. INPUT SHOULD BE LESS THAN 71");  
     let userNumber = parseInt(userInput); 
@@ -24,6 +31,12 @@ gridSize.addEventListener("click", () => {
         alert("THE INPUT SHOULD BE A VALID NUMBER.");
     } 
 
+    resetGrid.addEventListener("click", ()=> { 
+        container.innerHTML = "";  
+        createGrid(userNumber); 
+        alert("GRID HAS BEEN RESET, YOU CAN HOVER OVER IT AGAIN")
+        
+    })
     /* 
 
     The !isNaN check is crucial because parseInt can return NaN (Not-a-Number) if the input is not a valid number or if the input string does not contain 
@@ -53,7 +66,7 @@ page.setAttribute('style', "border: solid green;")
 
 
 
-body.setAttribute("style", "display:flex; flex-direction: column-reverse; gap: 60px; border: solid blue; width: 100vw; height: 100vh; justify-content: center; align-items: center; background-color:#754B2F")
+body.setAttribute("style", "display:flex; flex-direction: column; gap: 60px; border: solid blue; width: 100vw; height: 100vh; justify-content: center; align-items: center; background-color:#754B2F")
 
 
 
@@ -82,7 +95,10 @@ function createGrid(size) {
               row.style.backgroundColor = "#754B2F"//"#F3DBB2"; // Reset the color when mouse leaves
             });
             column.appendChild(row);
-        }
+        } 
+
+
+        
     }   
 
     container.style.display = "flex";  
