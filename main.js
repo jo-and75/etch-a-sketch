@@ -2,7 +2,8 @@
 const body = document.querySelector("body");   
 const container = document.getElementById("container");   
 
-const gridSize = document.createElement("button");   
+const gridSize = document.createElement("button");    
+gridSize.textContent = "Create Grid Size"
 gridSize.setAttribute("style", "display:flex;align-self: auto;")
 body.appendChild(gridSize); 
 
@@ -11,15 +12,36 @@ gridSize.addEventListener("click", () => {
     let userNumber = parseInt(userInput); 
 
    if(!isNaN(userNumber) && typeof userNumber === "number"){ 
-        if(userNumber > 0 && userNumber < 100){ 
+        if(userNumber > 0 && userNumber < 71){   
+            container.innerHTML = "";// Resets grid each time button is clicked.
             createGrid(userNumber);
         }else { 
-            alert("The input should be greater than 0 and less than 100.");
+            alert("THE INPUT SHOULD BE LESS THAN OR EQUAL TO 70.");
         }
     }else{ 
-        alert("The input was not a valid number.");
-    }
-})
+        alert("THE INPUT SHOULD BE A VALID NUMBER.");
+    } 
+
+    /* 
+
+    The !isNaN check is crucial because parseInt can return NaN (Not-a-Number) if the input is not a valid number or if the input string does not contain 
+    any numeric characters that can be converted to a number.
+
+    Even if typeof userNumber is "number", it could still be NaN, which represents an invalid number. 
+    Therefore, we need to check both that the type is "number" and that the value is not NaN. Here’s a detailed explanation of why each check is necessary:
+
+    typeof userNumber === "number": This ensures that userNumber is of type number. However, this alone is not sufficient because NaN is also of type number.
+
+    !isNaN(userNumber): This ensures that userNumber is a valid number and not NaN. The isNaN function checks whether a value is NaN.
+
+    Together, these checks ensure that userNumber is a valid number and not NaN. 
+
+    */
+
+
+}) 
+
+
 
 const page = document.getElementById("page"); 
 page.setAttribute('style', "border: solid green;")
@@ -29,7 +51,7 @@ page.setAttribute('style', "border: solid green;")
 
 
 
-body.setAttribute("style", "display:flex; flex-direction: column-reverse; gap: 60px; border: solid blue; width: 100vh; height: 100vh; justify-content: center; align-items: center; background-color:#754B2F")
+body.setAttribute("style", "display:flex; flex-direction: column-reverse; gap: 60px; border: solid blue; width: 100vw; height: 100vh; justify-content: center; align-items: center; background-color:#754B2F")
 
 
 
