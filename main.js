@@ -15,8 +15,6 @@ buttons.appendChild(gridSize);
 buttons.appendChild(resetGrid); 
 
 
-
-
 gridSize.addEventListener("click", () => { 
     let userInput = prompt("PLEASE ENTER A NEW GRID SIZE. INPUT SHOULD BE LESS THAN 71");  
     let userNumber = parseInt(userInput); 
@@ -74,7 +72,7 @@ function generateRandomColor() {
 
 const page = document.getElementById("page"); 
 page.setAttribute('style', "border: solid green;")
-body.setAttribute("style", "display:flex; flex-direction: column; gap: 60px; border: solid blue; width: 100vw; height: 100vh; justify-content: center; align-items: center; background-color:#754B2F")
+body.setAttribute("style", "display:flex; flex-direction: column; gap: 60px; border: solid blue; width: 100vw; height: 100vh; justify-content: center; align-items: center; background-color:#fefae0")
 
 
 function createGrid(size) {     
@@ -93,10 +91,10 @@ function createGrid(size) {
             row.setAttribute("style",`height:${cellSize}px ; width: ${cellSize}px; box-sizing: border-box;transition: background-color 0.3s;`); 
 
             row.addEventListener("mouseenter", () => { 
-                 row.style.backgroundColor = "#754B2F"; // Change the color on hover
+                 row.style.backgroundColor = generateRandomColor(); // Change the color on hover
             });
             row.addEventListener("mouseleave", () => {
-              row.style.backgroundColor ="#754B2F"; // Reset the color when mouse leaves
+              row.style.backgroundColor =generateRandomColor(); // Reset the color when mouse leaves
             });
             column.appendChild(row);
         } 
@@ -107,7 +105,7 @@ function createGrid(size) {
     container.style.width = containerWidth + "px"; // Need to add px cause css dictates unit needs to be defined
     container.style.height = containerHeight + "px";   
     container.style.border = "solid purple";       
-    container.style.backgroundColor = "#F3DBB2"
+    container.style.backgroundColor = "white"
 }
 
 //createGrid(16);
