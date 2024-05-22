@@ -1,15 +1,17 @@
 
 const body = document.querySelector("body");   
 const container = document.getElementById("container");    
-const buttons = document.getElementById("buttons"); 
-
-buttons.setAttribute("style","display: flex; justify-content: space-between; width:200px; border: solid pink")
-
+const buttons = document.getElementById("buttons");  
 const gridSize = document.createElement("button");    
-gridSize.textContent = "Create Grid"; 
 const resetGrid = document.createElement("button"); 
-resetGrid.textContent = "Reset Grid";
-gridSize.setAttribute("style", "display:flex;align-self: auto;")
+
+
+buttons.setAttribute("style","display: flex; justify-content: space-between; width:300px;height:20px;");
+gridSize.setAttribute("style", "background-color:pink; display: inline-block; width:50px;height:50px;font-size:20px;");
+gridSize.setAttribute("style", "display:flex;align-self: auto;");
+
+gridSize.textContent = "CREATE GRID";  
+resetGrid.textContent = "RESET GRID";
 
 buttons.appendChild(gridSize); 
 buttons.appendChild(resetGrid); 
@@ -37,19 +39,13 @@ gridSize.addEventListener("click", () => {
         
     })
     /* 
-
     The !isNaN check is crucial because parseInt can return NaN (Not-a-Number) if the input is not a valid number or if the input string does not contain 
     any numeric characters that can be converted to a number.
-
     Even if typeof userNumber is "number", it could still be NaN, which represents an invalid number. 
     Therefore, we need to check both that the type is "number" and that the value is not NaN. Here’s a detailed explanation of why each check is necessary:
-
     typeof userNumber === "number": This ensures that userNumber is of type number. However, this alone is not sufficient because NaN is also of type number.
-
     !isNaN(userNumber): This ensures that userNumber is a valid number and not NaN. The isNaN function checks whether a value is NaN.
-
     Together, these checks ensure that userNumber is a valid number and not NaN. 
-
     */
 }) 
 
@@ -63,16 +59,17 @@ function generateRandomColor() {
     const randomColor = `rgb(${red}, ${green}, ${blue})`;
 
     return randomColor; // Return the generated color string
-}
-
-
-
-
-
+} 
+/* 
+Math.random() * 256: Generates a random floating-point number between 0 (inclusive) and 256 (exclusive).
+Math.floor(): Rounds down the floating-point number to the nearest integer.
+rgb(red, green, blue): CSS color format where red, green, and blue are integers between 0 and 255 representing the intensity of the respective color component.
+By calling the generateRandomColor() function, you can obtain a random color string that you can then apply to elements in your HTML document, such as setting it as the background color of a container.
+*/ 
 
 const page = document.getElementById("page"); 
-page.setAttribute('style', "border: solid green;")
-body.setAttribute("style", "display:flex; flex-direction: column; gap: 60px; border: solid blue; width: 100vw; height: 100vh; justify-content: center; align-items: center; background-color:#fefae0")
+//page.setAttribute('style', "border: solid green;")
+body.setAttribute("style", "display:flex; flex-direction: column; gap: 60px; width: 100vw; height: 100vh; justify-content: center; align-items: center; background-color:#fefae0")
 
 
 function createGrid(size) {     
