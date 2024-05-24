@@ -99,7 +99,20 @@ By calling the generateRandomColor() function, you can obtain a random color str
             row.addEventListener("touchstart", (event) => {  
                 event.preventDefault();
                  row.style.backgroundColor = generateRandomColor(); 
-            }); 
+            });  
+
+            row.addEventListener("touchmove", (event) => {
+                    event.preventDefault();
+                    const touch = event.touches[0];
+                    const mouseX = touch.clientX - container.getBoundingClientRect().left;
+                    const mouseY = touch.clientY - container.getBoundingClientRect().top;
+                    const elementMouseIsOver = document.elementFromPoint(mouseX, mouseY);
+
+                    if (elementMouseIsOver && elementMouseIsOver.tagName === 'DIV') {
+                        elementMouseIsOver.style.backgroundColor = generateRandomColor();
+                    }
+            });
+
             row.addEventListener("touchend", (event) => { 
                 event.preventDefault();
               row.style.backgroundColor =generateRandomColor(); 
