@@ -1,14 +1,19 @@
 
 const body = document.querySelector("body");   
 const container = document.getElementById("container");    
-const buttons = document.getElementById("buttons");  
+const buttons = document.getElementById("buttons");   
+const page = document.getElementById("page");
 const gridSize = document.createElement("button");    
-const resetGrid = document.createElement("button"); 
+const resetGrid = document.createElement("button");  
+const text = document.querySelector("p");
 
 
-buttons.setAttribute("style","display: flex; justify-content: space-between; width:300px;height:20px;");
-gridSize.setAttribute("style", "background-color:pink; display: inline-block; width:50px;height:50px;font-size:20px;");
-gridSize.setAttribute("style", "display:flex;align-self: auto;");
+buttons.setAttribute("style","display: flex; flex-direction: column; border: solid #fefae0 ;align-items:center; justify-content:space-between; width:170px;height:300px;"); 
+//page.setAttribute('style', "border: solid yellow;");
+gridSize.setAttribute("style", "border-radius: 30px; color: whitesmoke; border: solid whitesmoke; width:120px; height: 40px; background-color: #f7b32b;font-family: Sans-serif;font-weight: bold;")
+resetGrid.setAttribute("style","border-radius: 30px; color: whitesmoke; border: solid whitesmoke; width:120px; height: 40px; background-color:#f7b32b;font-family: Sans-serif;font-weight: bold;")
+body.setAttribute("style", "display:flex;flex-direction: row; gap: 60px; width: 100vw; height: 100vh; justify-content: center; align-items: center; background-color:#fefae0");
+text.setAttribute("style","font-size:13px;font-family:font-weight:bold; Sans-serif;text-align:justify;")
 
 gridSize.textContent = "CREATE GRID";  
 resetGrid.textContent = "RESET GRID";
@@ -18,15 +23,15 @@ buttons.appendChild(resetGrid);
 
 
 gridSize.addEventListener("click", () => { 
-    let userInput = prompt("PLEASE ENTER A NEW GRID SIZE. INPUT SHOULD BE LESS THAN 71");  
+    let userInput = prompt("PLEASE ENTER A NEW GRID SIZE. INPUT SHOULD BE LESS THAN OR EQUAL TO 65.");  
     let userNumber = parseInt(userInput); 
 
    if(!isNaN(userNumber) && typeof userNumber === "number"){ 
-        if(userNumber > 0 && userNumber < 71){   
+        if(userNumber > 0 && userNumber < 66 ){   
             container.innerHTML = "";// Removes all child elements effectively reseting grid each time button is clicked.
             createGrid(userNumber);
         }else { 
-            alert("THE INPUT SHOULD BE LESS THAN OR EQUAL TO 70.");
+            alert("THE INPUT SHOULD BE LESS THAN OR EQUAL TO 65.");
         }
     }else{ 
         alert("THE INPUT SHOULD BE A VALID NUMBER.");
@@ -67,12 +72,7 @@ rgb(red, green, blue): CSS color format where red, green, and blue are integers 
 By calling the generateRandomColor() function, you can obtain a random color string that you can then apply to elements in your HTML document, such as setting it as the background color of a container.
 */ 
 
-const page = document.getElementById("page"); 
-//page.setAttribute('style', "border: solid green;")
-body.setAttribute("style", "display:flex; flex-direction: column; gap: 60px; width: 100vw; height: 100vh; justify-content: center; align-items: center; background-color:#fefae0")
-
-
-function createGrid(size) {     
+ function createGrid(size) {     
 
     const cellSize = 10;  
     const containerWidth = size * cellSize;
@@ -88,24 +88,28 @@ function createGrid(size) {
             row.setAttribute("style",`height:${cellSize}px ; width: ${cellSize}px; box-sizing: border-box;transition: background-color 0.3s;`); 
 
             row.addEventListener("mouseenter", () => { 
-                 row.style.backgroundColor = generateRandomColor(); // Change the color on hover
+                 row.style.backgroundColor = generateRandomColor(); // Change the color on hover 
             });
             row.addEventListener("mouseleave", () => {
               row.style.backgroundColor =generateRandomColor(); // Reset the color when mouse leaves
-            });
+            }); 
+            row.addEventListener("touchstart", () => { 
+                row.style.backgroundColor = generateRandomColor();
+            }) 
+            row.addEventListener("touchend", () => { 
+                row.style.backgroundColor =generateRandomColor();
+            })
             column.appendChild(row);
         } 
-        
     }   
-
     container.style.display = "flex";  
     container.style.width = containerWidth + "px"; // Need to add px cause css dictates unit needs to be defined
     container.style.height = containerHeight + "px";   
-    container.style.border = "solid purple";       
-    container.style.backgroundColor = "white"
+    //container.style.border = "solid purple";       
+    container.style.backgroundColor = "white" ;
+    container.style.borderRadius = "20px";
 }
 
-//createGrid(16);
 
 
 
