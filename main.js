@@ -87,18 +87,24 @@ By calling the generateRandomColor() function, you can obtain a random color str
             const row = document.createElement("div"); 
             row.setAttribute("style",`height:${cellSize}px ; width: ${cellSize}px; box-sizing: border-box;transition: background-color 0.3s;`); 
 
-            row.addEventListener("mouseenter", () => { 
+            row.addEventListener("mouseenter", () => {  
                  row.style.backgroundColor = generateRandomColor(); // Change the color on hover 
             });
-            row.addEventListener("mouseleave", () => {
-              row.style.backgroundColor =generateRandomColor(); // Reset the color when mouse leaves
+
+            row.addEventListener("mouseleave", () => {  
+                 row.style.backgroundColor = generateRandomColor(); // Change the color on hover 
             }); 
-            row.addEventListener("touchstart", () => { 
-                row.style.backgroundColor = generateRandomColor();
-            }) 
-            row.addEventListener("touchend", () => { 
-                row.style.backgroundColor =generateRandomColor();
-            })
+
+            // FOR MOBILE DEVICES
+            row.addEventListener("touchstart", (event) => {  
+                event.preventDefault();
+                 row.style.backgroundColor = generateRandomColor(); 
+            }); 
+            row.addEventListener("touchend", (event) => { 
+                event.preventDefault();
+              row.style.backgroundColor =generateRandomColor(); 
+            }); 
+            
             column.appendChild(row);
         } 
     }   
